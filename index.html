@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17251e">
+  <meta name="description" content="오래된 궁전의 살롱처럼, 한 잔의 여유를. 카페 벨루아의 커피와 디저트를 만나보세요.">
+  <title>벨루아 | 커피와 작은 사치</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --forest: #17251e;
+      --forest-light: #20342a;
+      --cream: #f2e9d8;
+      --muted: #c4b9a5;
+      --gold: #c6a66b;
+      --wine: #762f39;
+      --line: rgba(198, 166, 107, .38);
+      --serif: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      --korean: 'Noto Serif KR', serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--forest);
+      color: var(--cream);
+      font-family: var(--korean);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .page-frame { overflow: hidden; }
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 6.5%;
+      border-bottom: 1px solid rgba(242, 233, 216, .12);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .12em;
+    }
+    .topline span:last-child { color: var(--gold); }
+    header {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6.5%;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font: 600 23px/1 var(--serif);
+      transform: rotate(45deg);
+    }
+    .brand-mark span { transform: rotate(-45deg); }
+    .brand-name { font: 600 29px/.95 var(--serif); letter-spacing: .03em; }
+    .brand-name small { display: block; margin-top: 6px; color: var(--gold); font: 9px/1 var(--korean); letter-spacing: .22em; }
+    nav { display: flex; align-items: center; gap: 37px; color: var(--muted); font-size: 12px; }
+    nav a { transition: color .2s ease; }
+    nav a:hover, nav a:focus-visible { color: var(--gold); }
+    .nav-visit {
+      padding: 9px 18px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+    .hero {
+      min-height: 590px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 74px 11%;
+      background:
+        linear-gradient(90deg, rgba(15, 23, 19, .94) 0%, rgba(15, 23, 19, .78) 38%, rgba(15, 23, 19, .16) 100%),
+        linear-gradient(0deg, rgba(15, 23, 19, .28), transparent 40%),
+        url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2000&q=85') center 53% / cover;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(198, 166, 107, .44);
+      pointer-events: none;
+    }
+    .hero-copy { position: relative; z-index: 1; width: min(590px, 100%); }
+    .eyebrow { color: var(--gold); font-size: 11px; letter-spacing: .2em; }
+    .hero h1 {
+      margin: 21px 0 17px;
+      font: 500 clamp(54px, 7vw, 88px)/.93 var(--serif);
+      letter-spacing: .025em;
+    }
+    .hero h1 span { display: block; margin-top: 16px; font: 500 23px/1.5 var(--korean); letter-spacing: .02em; }
+    .hero-copy p { max-width: 410px; margin: 25px 0 31px; color: #ddd4c4; font-size: 13px; line-height: 2; }
+    .gold-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 17px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 12px;
+    }
+    .gold-link span { font-size: 18px; transition: transform .2s ease; }
+    .gold-link:hover span { transform: translateX(4px); }
+    .hero-caption {
+      position: absolute;
+      z-index: 1;
+      right: 9%;
+      bottom: 42px;
+      color: #e4d8c3;
+      font: italic 17px var(--serif);
+      letter-spacing: .06em;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr minmax(260px, 560px) 1fr;
+      align-items: center;
+      gap: 30px;
+      padding: 70px 7%;
+      text-align: center;
+    }
+    .intro-rule { height: 1px; background: var(--line); }
+    .intro p { margin: 0; color: var(--muted); font-size: 13px; line-height: 2; }
+    .intro strong { display: block; margin-bottom: 9px; color: var(--cream); font: 500 24px var(--serif); }
+    .menu-section { padding: 67px 9% 92px; background: #eee5d5; color: #26352c; }
+    .section-heading { text-align: center; }
+    .section-heading .eyebrow { color: #846c42; }
+    .section-heading h2 { margin: 7px 0 3px; font: 500 47px/1.1 var(--serif); }
+    .section-heading p { margin: 0; color: #716b60; font-size: 12px; }
+    .filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 32px 0 35px; }
+    .filter-button {
+      min-width: 83px;
+      padding: 8px 13px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #70685b;
+      cursor: pointer;
+      font-size: 11px;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .filter-button:hover, .filter-button[aria-pressed="true"] { border-color: #765d35; background: #26352c; color: #f2e9d8; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 38px; max-width: 1040px; margin: 0 auto; }
+    .menu-item { padding: 20px 0 18px; border-top: 1px solid rgba(61, 58, 49, .24); animation: appear .35s ease both; }
+    .menu-item[hidden] { display: none; }
+    .menu-title { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .menu-title h3 { margin: 0; font-size: 15px; font-weight: 600; }
+    .menu-title span { flex: 0 0 auto; color: #765d35; font: 600 19px var(--serif); }
+    .menu-item p { margin: 6px 0 0; color: #766f62; font-size: 11px; }
+    .seasonal {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      min-height: 330px;
+      background: var(--wine);
+    }
+    .seasonal-image {
+      min-height: 300px;
+      background: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85') center 49% / cover;
+    }
+    .seasonal-copy { display: flex; flex-direction: column; justify-content: center; padding: 55px 11%; }
+    .seasonal-copy .eyebrow { color: #dfc58e; }
+    .seasonal-copy h2 { margin: 10px 0 13px; font: 500 42px/1.08 var(--serif); }
+    .seasonal-copy p { max-width: 390px; margin: 0 0 22px; color: #ead9d0; font-size: 12px; line-height: 2; }
+    .seasonal-copy .gold-link { align-self: flex-start; color: #f0d7a1; border-color: #f0d7a1; }
+    .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; padding: 78px 12%; }
+    .visit h2 { margin: 5px 0 17px; font: 500 43px/1.1 var(--serif); }
+    .visit p { color: var(--muted); font-size: 12px; }
+    .visit-details { display: grid; grid-template-columns: 1fr 1fr; gap: 19px 26px; align-content: center; }
+    .detail { padding-top: 11px; border-top: 1px solid var(--line); }
+    .detail strong { display: block; margin-bottom: 4px; color: var(--gold); font-size: 11px; font-weight: 500; }
+    .detail span { color: var(--cream); font-size: 12px; }
+    footer { display: flex; justify-content: space-between; align-items: center; padding: 22px 6.5%; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+    footer .brand-name { color: var(--cream); font-size: 22px; }
+    footer .brand-name small { font-size: 8px; }
+    @keyframes appear { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) {
+      .topline { padding-inline: 5%; font-size: 9px; }
+      header { height: 72px; padding-inline: 5%; }
+      .brand-mark { width: 33px; height: 33px; font-size: 20px; }
+      .brand-name { font-size: 25px; }
+      nav { gap: 18px; }
+      nav a:not(.nav-visit) { display: none; }
+      .nav-visit { padding: 7px 11px; font-size: 10px; }
+      .hero { min-height: 560px; padding: 60px 9%; background-position: 58% center; }
+      .hero h1 { font-size: 68px; }
+      .hero-caption { right: 10%; bottom: 35px; font-size: 14px; }
+      .intro { grid-template-columns: 25px 1fr 25px; gap: 15px; padding: 52px 7%; }
+      .intro strong { font-size: 21px; }
+      .intro p { font-size: 11px; }
+      .menu-section { padding: 56px 8% 68px; }
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
+      .seasonal { grid-template-columns: 1fr; }
+      .seasonal-image { min-height: 245px; }
+      .seasonal-copy { padding: 39px 9% 45px; }
+      .seasonal-copy h2 { font-size: 38px; }
+      .visit { grid-template-columns: 1fr; gap: 24px; padding: 58px 9%; }
+      .visit h2 { font-size: 38px; }
+    }
+    @media (max-width: 430px) {
+      .topline span:first-child { max-width: 58%; }
+      .hero { min-height: 525px; }
+      .hero h1 { font-size: 59px; }
+      .hero h1 span { font-size: 19px; }
+      .hero-copy p { font-size: 12px; }
+      .section-heading h2 { font-size: 41px; }
+      .filters { gap: 1px; }
+      .filter-button { min-width: auto; padding: 8px 10px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-item { padding-block: 15px; }
+      .visit-details { gap: 15px 12px; }
+      footer { align-items: flex-start; gap: 14px; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-frame">
+    <div class="topline">
+      <span>서울 종로구 서순라길 28, 벨루아 살롱</span>
+      <span>매일 10:00 — 21:00 · LAST ORDER 20:30</span>
+    </div>
+    <header>
+      <a class="brand" href="#home" aria-label="벨루아 홈">
+        <span class="brand-mark"><span>V</span></span>
+        <span class="brand-name">BELLOIR<small>벨 루 아 · COFFEE SALON</small></span>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <a href="#story">살롱 이야기</a>
+        <a href="#menu">메뉴</a>
+        <a href="#visit">찾아오시는 길</a>
+        <a class="nav-visit" href="#visit">방문 안내</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <span class="eyebrow">A LITTLE GRANDEUR, EVERY DAY</span>
+          <h1>Salon<br>de Belloir<span>오래된 궁전의 살롱처럼</span></h1>
+          <p>짙은 커피 향과 촛불 같은 오후의 빛.<br>벨루아에서 오늘의 작은 사치를 누려보세요.</p>
+          <a class="gold-link" href="#menu">벨루아의 메뉴 <span aria-hidden="true">→</span></a>
+        </div>
+        <span class="hero-caption">Est. in a slower moment</span>
+      </section>
+
+      <section class="intro" id="story">
+        <span class="intro-rule" aria-hidden="true"></span>
+        <p><strong>시간이 천천히 흐르는 곳</strong>고전적인 아름다움에 오늘의 감각을 더한 공간.<br>정성스러운 한 잔과 구움과자로 당신을 맞이합니다.</p>
+        <span class="intro-rule" aria-hidden="true"></span>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="section-heading">
+          <span class="eyebrow">THE SALON MENU</span>
+          <h2>À votre goût</h2>
+          <p>천천히 고르는 즐거움, 벨루아의 메뉴</p>
+        </div>
+        <div class="filters" role="group" aria-label="메뉴 종류 선택">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button class="filter-button" type="button" data-filter="coffee" aria-pressed="false">커피</button>
+          <button class="filter-button" type="button" data-filter="signature" aria-pressed="false">시그니처</button>
+          <button class="filter-button" type="button" data-filter="dessert" aria-pressed="false">디저트</button>
+        </div>
+        <div class="menu-grid" aria-live="polite">
+          <article class="menu-item" data-category="coffee">
+            <div class="menu-title"><h3>벨루아 에스프레소</h3><span>₩4,500</span></div>
+            <p>다크 초콜릿과 볶은 헤이즐넛의 깊은 여운</p>
+          </article>
+          <article class="menu-item" data-category="coffee">
+            <div class="menu-title"><h3>살롱 라떼</h3><span>₩6,000</span></div>
+            <p>부드러운 우유 거품, 은은한 바닐라 빈</p>
+          </article>
+          <article class="menu-item" data-category="signature">
+            <div class="menu-title"><h3>로즈 크림 모카</h3><span>₩7,000</span></div>
+            <p>벨기에 초콜릿과 장미 향 크림의 조화</p>
+          </article>
+          <article class="menu-item" data-category="signature">
+            <div class="menu-title"><h3>골든 솔티드 크림</h3><span>₩7,000</span></div>
+            <p>카라멜 커피 위에 올린 고소한 소금 크림</p>
+          </article>
+          <article class="menu-item" data-category="dessert">
+            <div class="menu-title"><h3>바닐라 빈 까눌레</h3><span>₩3,800</span></div>
+            <p>겉은 바삭하고 속은 촉촉하게 구워낸 작은 과자</p>
+          </article>
+          <article class="menu-item" data-category="dessert">
+            <div class="menu-title"><h3>로즈 밀푀유</h3><span>₩8,500</span></div>
+            <p>결이 살아 있는 페이스트리와 장미 크림</p>
+          </article>
+          <article class="menu-item" data-category="dessert">
+            <div class="menu-title"><h3>벨벳 초콜릿 케이크</h3><span>₩8,000</span></div>
+            <p>진한 가나슈와 산뜻한 라즈베리 콩포트</p>
+          </article>
+          <article class="menu-item" data-category="coffee">
+            <div class="menu-title"><h3>얼그레이 크림 콜드브루</h3><span>₩6,500</span></div>
+            <p>차 향을 입힌 크림과 오랜 시간 내린 커피</p>
+          </article>
+          <article class="menu-item" data-category="signature">
+            <div class="menu-title"><h3>피스타치오 아포가토</h3><span>₩7,500</span></div>
+            <p>수제 피스타치오 젤라토와 뜨거운 에스프레소</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="seasonal" aria-labelledby="season-title">
+        <div class="seasonal-image" role="img" aria-label="초콜릿 케이크"></div>
+        <div class="seasonal-copy">
+          <span class="eyebrow">THIS SEASON AT BELLOIR</span>
+          <h2 id="season-title">달콤한 계절,<br>벨벳 초콜릿</h2>
+          <p>한 겹씩 쌓아 올린 진한 초콜릿과 상큼한 라즈베리. 따뜻한 커피 한 잔과 함께 가장 다정한 오후를 선물합니다.</p>
+          <a class="gold-link" href="#menu">시즌 메뉴 보기 <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="visit" id="visit">
+        <div>
+          <span class="eyebrow">COME BY FOR A WHILE</span>
+          <h2>당신의 자리를<br>마련해둘게요.</h2>
+          <p>한옥의 고요함이 남아 있는 서순라길,<br>벨루아의 문은 매일 열려 있습니다.</p>
+        </div>
+        <div class="visit-details">
+          <div class="detail"><strong>ADDRESS</strong><span>서울 종로구 서순라길 28</span></div>
+          <div class="detail"><strong>HOURS</strong><span>매일 10:00 — 21:00</span></div>
+          <div class="detail"><strong>NEARBY</strong><span>종로3가역 7번 출구 도보 8분</span></div>
+          <div class="detail"><strong>CONTACT</strong><span>02-742-1826</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span class="brand-name">BELLOIR<small>벨 루 아 · COFFEE SALON</small></span>
+      <span>© 2026 BELLOIR COFFEE SALON. ALL RIGHTS RESERVED.</span>
+    </footer>
+  </div>
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const category = button.dataset.filter;
+        filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        menuItems.forEach((item) => {
+          item.hidden = category !== 'all' && item.dataset.category !== category;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
